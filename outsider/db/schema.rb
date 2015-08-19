@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150819034511) do
+ActiveRecord::Schema.define(version: 20150819040026) do
 
   create_table "comments", force: :cascade do |t|
     t.datetime "created_at",  null: false
@@ -32,14 +32,14 @@ ActiveRecord::Schema.define(version: 20150819034511) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
     t.string   "name"
     t.string   "password"
     t.boolean  "private"
-    t.string   "followers"
-    t.string   "following"
     t.string   "alias"
+    t.string   "followers",  default: "--- []\n"
+    t.string   "following",  default: "--- []\n"
   end
 
   add_index "users", ["alias"], name: "index_users_on_alias"

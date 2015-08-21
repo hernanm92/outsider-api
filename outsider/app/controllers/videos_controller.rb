@@ -35,6 +35,7 @@ class VideosController < ApplicationController
     {
       owner: params.require(:owner),
       title: params.require(:title),
+      description: params.require(:description),
       sport: params.require(:sport)
     }
   end
@@ -48,7 +49,8 @@ class VideosController < ApplicationController
   def video_update_params
 	  {
 	    points: params.require(:points),
-	    views: params.require(:views)
+	    views: params.require(:views),
+	    description: params.require(:description)
 	  }
   end
 end

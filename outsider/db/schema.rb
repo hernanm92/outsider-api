@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150819040026) do
+ActiveRecord::Schema.define(version: 20150821035133) do
 
   create_table "comments", force: :cascade do |t|
     t.datetime "created_at",  null: false
@@ -45,14 +45,15 @@ ActiveRecord::Schema.define(version: 20150819040026) do
   add_index "users", ["alias"], name: "index_users_on_alias"
 
   create_table "videos", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.integer  "video_id"
     t.string   "sport"
     t.string   "owner"
     t.string   "title"
     t.float    "points"
     t.integer  "views"
+    t.text     "description"
   end
 
   add_index "videos", ["owner"], name: "index_videos_on_owner"

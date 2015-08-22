@@ -11,15 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150821035133) do
+ActiveRecord::Schema.define(version: 20150822021419) do
 
   create_table "comments", force: :cascade do |t|
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.integer  "comment_id"
     t.integer  "video"
     t.string   "owner"
     t.text     "description"
+    t.float    "points"
   end
 
   add_index "comments", ["video"], name: "index_comments_on_video"
@@ -47,13 +47,13 @@ ActiveRecord::Schema.define(version: 20150821035133) do
   create_table "videos", force: :cascade do |t|
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.integer  "video_id"
     t.string   "sport"
     t.string   "owner"
     t.string   "title"
     t.float    "points"
     t.integer  "views"
     t.text     "description"
+    t.integer  "difficulty"
   end
 
   add_index "videos", ["owner"], name: "index_videos_on_owner"

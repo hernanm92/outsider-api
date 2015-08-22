@@ -49,11 +49,6 @@ class UsersController < ApplicationController
   end
 
   def user_update_params
-	  {
-	    private: params.require(:private),
-	    password: params.require(:password),
-	    followers: params.require(:followers),
-	    following: params.require(:following)
-	  }
+  	params.slice(:private, :password, :followers, :following).permit! #no son obligatorios
   end
 end

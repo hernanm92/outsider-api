@@ -47,10 +47,6 @@ class VideosController < ApplicationController
   end
 
   def video_update_params
-	  {
-	    points: params.require(:points),
-	    views: params.require(:views),
-	    description: params.require(:description)
-	  }
+    params.slice(:points, :views, :description).permit!
   end
 end

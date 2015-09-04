@@ -47,6 +47,6 @@ class VideosController < ApplicationController
   end
 
   def video_update_params
-    params.slice(:points, :views, :description).permit!
+    params.slice(:points, :views, :description, :url).permit!
   end
 end

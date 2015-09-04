@@ -1,4 +1,11 @@
 class Video < ActiveRecord::Base
+
+  validates :owner, presence: true
+  validates :title, presence: true, length: { in: 5..50 }
+  validates :description, presence: true, length: { in: 5..500 }
+  validates :sport, presence: true
+
+
 	after_initialize :set_defaults
 
 	private

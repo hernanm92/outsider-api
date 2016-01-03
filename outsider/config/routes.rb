@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :riders
+
   resources :users, only: [:index, :show, :create, :update, :destroy]
   resources :videos, only: [:index, :show, :create, :update, :destroy] do
     resources :comments, only: [:index, :show, :update, :destroy]

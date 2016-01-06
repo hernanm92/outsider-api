@@ -1,0 +1,7 @@
+{
+  "name": "Outsider api",
+  "description": "Outsidedr api using rails",
+  "repository": "https://github.com/hernanm92/outsider-api",
+  "keywords": ["ruby", "rails"],
+  "image": "heroku/ruby"
+}

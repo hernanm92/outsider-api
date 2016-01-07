@@ -21,7 +21,7 @@ gem 'rack-cors', require: 'rack/cors'
 gem 'typhoeus'
 
 
-gem 'sqlite3'
+#gem 'sqlite3'
 
 
 

@@ -3,7 +3,7 @@
 
 rackup 'config.ru'
 
-environment 'production'
+environment 'development'
 
 bind 'tcp://0.0.0.0:8080'
 

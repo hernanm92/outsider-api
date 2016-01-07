@@ -1,14 +1,13 @@
 source 'https://rubygems.org'
 ruby '2.2.4'
 
-gem 'rails', '~> 4.2'
+gem 'rails', '4.2.3'
 gem 'rails-api'
 gem 'active_model_serializers', '~> 0.10.0.rc1'
 
 gem 'pg'
 
 gem 'multi_json'
-gem 'oj'
 gem 'rails-html-sanitizer'
 gem 'concurrent-ruby-ext', '~> 0.9.0'
 gem 'toiler'

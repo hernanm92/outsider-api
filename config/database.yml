@@ -19,14 +19,14 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: 5
-  #username: fury
+  username: postgres #validar que que usuario me viene por defecto
   timeout: 5000
   #host: localhost
 
 development:
   <<: *default
   #database: db/development.sqlite3
-  database: fury_development
+  database: outsider_development
 
 
 

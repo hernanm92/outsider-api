@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20160104012335) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "comments", force: :cascade do |t|
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
@@ -22,7 +25,7 @@ ActiveRecord::Schema.define(version: 20160104012335) do
     t.float    "points"
   end
 
-  add_index "comments", ["video"], name: "index_comments_on_video"
+  add_index "comments", ["video"], name: "index_comments_on_video", using: :btree
 
   create_table "photos", force: :cascade do |t|
     t.string   "title"
@@ -66,17 +69,17 @@ ActiveRecord::Schema.define(version: 20160104012335) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.string   "name"
+    t.string   "alias"
     t.string   "password"
     t.boolean  "private"
-    t.string   "alias"
-    t.string   "followers",  default: "--- []\n"
-    t.string   "following",  default: "--- []\n"
+    t.text     "followers",  default: [],              array: true
+    t.text     "following",  default: [],              array: true
   end
 
-  add_index "users", ["alias"], name: "index_users_on_alias"
+  add_index "users", ["alias"], name: "index_users_on_alias", using: :btree
 
   create_table "videos", force: :cascade do |t|
     t.datetime "created_at",  null: false
@@ -91,7 +94,7 @@ ActiveRecord::Schema.define(version: 20160104012335) do
     t.string   "url"
   end
 
-  add_index "videos", ["owner"], name: "index_videos_on_owner"
-  add_index "videos", ["sport"], name: "index_videos_on_sport"
+  add_index "videos", ["owner"], name: "index_videos_on_owner", using: :btree
+  add_index "videos", ["sport"], name: "index_videos_on_sport", using: :btree
 
 end

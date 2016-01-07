@@ -4,10 +4,18 @@
 #   Ensure the SQLite 3 gem is defined in your Gemfile
 #   gem 'sqlite3'
 #
+#dddefault: &default
+  #adapter: sqlite3
+  #pool: 5
+  #timeout: 5000
+
 default: &default
-  adapter: sqlite3
+  adapter: postgresql
+  encoding: unicode
   pool: 5
-  timeout: 5000
+  #username: fury
+  #timeout: 5000
+  #host: localhost
 
 development:
   <<: *default
@@ -20,6 +28,10 @@ test:
   <<: *default
   database: db/test.sqlite3
 
+
 production:
   <<: *default
-  database: db/production.sqlite3
+  #database: fury_production
+  #pool: 20
+  #host: fury-core.cg7m8tcq4vy7.us-east-1.rds.amazonaws.com
+  #port: 5432

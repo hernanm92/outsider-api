@@ -1,8 +1,8 @@
 #!/bin/bash
 
-export RAILS_ENV=development
-export RUBY_ENV=development
-export RACK_ENV=development
+export RAILS_ENV=production
+export RUBY_ENV=production
+export RACK_ENV=production
 
-bundle exec rake db:migrate RAILS_ENV=development
+bundle exec rake db:migrate RAILS_ENV=production
 bundle exec puma -C puma.rb

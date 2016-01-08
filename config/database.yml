@@ -19,7 +19,7 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: 5
-  username: postgres #validar que que usuario me viene por defecto
+  #username: postgres #validar que que usuario me viene por defecto
   timeout: 5000
   #host: localhost
 
@@ -27,6 +27,8 @@ development:
   <<: *default
   #database: db/development.sqlite3
   database: outsider_development
+  username: zhpkxhgenvsymv
+  password: zhpkxhgenvsymv:PsC1zmk0jhk4MsYAf8icQ47XQT
 
 
 

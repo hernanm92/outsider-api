@@ -17,7 +17,7 @@ stdout_redirect 'log/stdout.log', 'log/stderr.log', true
 
 threads 16, 64
 
-workers 1
+workers 0
 
 # preload_app!
 

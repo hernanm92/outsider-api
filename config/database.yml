@@ -32,7 +32,7 @@ development:
 production:
   <<: *default
   #database: db/development.sqlite3
-  database: postgresql-curved-4822
+  database: d2bbs54b0nker4
   username: zhpkxhgenvsymv
   password: PsC1zmk0jhk4MsYAf8icQ47XQT
 

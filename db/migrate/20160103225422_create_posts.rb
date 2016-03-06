@@ -5,6 +5,7 @@ class CreatePosts < ActiveRecord::Migration
       t.string :sport
       t.string :url
       t.string :post_type
+      t.datetime :date
       t.text :description
 
       t.timestamps null: false

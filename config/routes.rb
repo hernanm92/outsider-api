@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :spots, except: [:new, :edit]
   resources :photos, except: [:new, :edit]
   resources :posts
 

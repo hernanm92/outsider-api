@@ -5,7 +5,7 @@ class CreateRiders < ActiveRecord::Migration
       t.string :alias, index: true, unique: true, null: false
       t.string :sport, null: false
       t.string :photo_url, null: false
-      t.string :birthdate
+      t.datetime :birthdate
       t.text :description
       t.string :nickname
       t.string :procedence
@@ -15,7 +15,9 @@ class CreateRiders < ActiveRecord::Migration
       t.string :facebook
       t.string :instagram
       t.string :twitter
-      t.text :spots, array: true, default: []
+
+      t.text :other_spots, array: true, default: []
+      t.references :spot, index: true
 
       t.timestamps null: false
     end

@@ -17,8 +17,7 @@
 #  facebook    :string
 #  instagram   :string
 #  twitter     :string
-#  other_spots :text             default([]), is an Array
-#  spot_id     :integer
+#  spots       :jsonb            default([])
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #

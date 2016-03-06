@@ -3,10 +3,12 @@ class CreatePosts < ActiveRecord::Migration
     create_table :posts do |t|
       t.string :title
       t.string :sport
-      t.string :photo_url
+      t.string :url
+      t.string :post_type
       t.text :description
 
       t.timestamps null: false
     end
+
   end
 end

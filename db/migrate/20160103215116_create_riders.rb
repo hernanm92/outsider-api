@@ -1,14 +1,21 @@
 class CreateRiders < ActiveRecord::Migration
   def change
     create_table :riders do |t|
-      t.string :name
-      t.string :sport
-      t.string :photo_url
+      t.string :name, null: false
+      t.string :alias, index: true, unique: true, null: false
+      t.string :sport, null: false
+      t.string :photo_url, null: false
+      t.string :birthdate
       t.text :description
-      t.integer :age
       t.string :nickname
-      t.string :location
-      t.text :comment
+      t.string :procedence
+      t.string :residence
+      t.string :stance
+      t.text :quote
+      t.string :facebook
+      t.string :instagram
+      t.string :twitter
+      t.text :spots, array: true, default: []
 
       t.timestamps null: false
     end

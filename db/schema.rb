@@ -11,90 +11,85 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160104012335) do
+ActiveRecord::Schema.define(version: 20160306184939) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "comments", force: :cascade do |t|
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.integer  "video"
-    t.string   "owner"
-    t.text     "description"
-    t.float    "points"
-  end
-
-  add_index "comments", ["video"], name: "index_comments_on_video", using: :btree
 
   create_table "photos", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
     t.string   "url"
     t.string   "sport"
-    t.string   "rider"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "date"
+    t.string   "other_spot"
+    t.integer  "spot_id"
+    t.text     "other_riders", default: [],              array: true
+    t.integer  "rider_id"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
+
+  add_index "photos", ["rider_id"], name: "index_photos_on_rider_id", using: :btree
+  add_index "photos", ["spot_id"], name: "index_photos_on_spot_id", using: :btree
 
   create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.string   "sport"
+    t.string   "url"
+    t.string   "post_type"
+    t.datetime "date"
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.string   "url"
-    t.string   "post_type"
   end
 
   create_table "riders", force: :cascade do |t|
-    t.string   "name"
-    t.string   "sport"
-    t.string   "photo_url"
+    t.string   "name",                     null: false
+    t.string   "alias",                    null: false
+    t.string   "sport",                    null: false
+    t.string   "photo_url",                null: false
+    t.datetime "birthdate"
     t.text     "description"
-    t.integer  "age"
     t.string   "nickname"
-    t.string   "location"
-    t.text     "comment"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.string   "alias"
+    t.string   "procedence"
+    t.string   "residence"
+    t.string   "stance"
+    t.text     "quote"
+    t.string   "facebook"
+    t.string   "instagram"
+    t.string   "twitter"
+    t.text     "other_spots", default: [],              array: true
+    t.integer  "spot_id"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
-  create_table "sports", force: :cascade do |t|
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.string   "name"
+  add_index "riders", ["alias"], name: "index_riders_on_alias", using: :btree
+  add_index "riders", ["spot_id"], name: "index_riders_on_spot_id", using: :btree
+
+  create_table "spots", force: :cascade do |t|
+    t.string   "name",                     null: false
+    t.string   "alias",                    null: false
+    t.string   "address",                  null: false
+    t.decimal  "latitude"
+    t.decimal  "longuitude"
+    t.string   "url",                      null: false
     t.text     "description"
+    t.text     "sports",      default: [],              array: true
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
+
+  add_index "spots", ["alias"], name: "index_spots_on_alias", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-    t.string   "name"
-    t.string   "alias"
+    t.string   "username",   null: false
     t.string   "password"
-    t.boolean  "private"
-    t.text     "followers",  default: [],              array: true
-    t.text     "following",  default: [],              array: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  add_index "users", ["alias"], name: "index_users_on_alias", using: :btree
-
-  create_table "videos", force: :cascade do |t|
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.string   "sport"
-    t.string   "owner"
-    t.string   "title"
-    t.float    "points"
-    t.integer  "views"
-    t.text     "description"
-    t.integer  "difficulty"
-    t.string   "url"
-  end
-
-  add_index "videos", ["owner"], name: "index_videos_on_owner", using: :btree
-  add_index "videos", ["sport"], name: "index_videos_on_sport", using: :btree
+  add_index "users", ["username"], name: "index_users_on_username", using: :btree
 
 end

@@ -15,9 +15,7 @@ class CreateRiders < ActiveRecord::Migration
       t.string :facebook
       t.string :instagram
       t.string :twitter
-
-      t.text :other_spots, array: true, default: []
-      t.references :spot, index: true
+      t.jsonb :spots, default: []
 
       t.timestamps null: false
     end

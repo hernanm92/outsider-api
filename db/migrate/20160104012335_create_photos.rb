@@ -6,12 +6,8 @@ class CreatePhotos < ActiveRecord::Migration
       t.string :url
       t.string :sport
       t.datetime :date
-
-      t.string :other_spot
-      t.references :spot, index: true
-
-      t.text :other_riders, array: true, default: []
-      t.references :rider, index: true
+      t.jsonb :spot, default: {}
+      t.jsonb :riders, default: []
 
       t.timestamps null: false
     end

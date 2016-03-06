@@ -38,7 +38,11 @@ class PhotosController < ApplicationController
         description: params.require(:description),
         url: params.require(:url),
         sport: params.require(:sport),
-        rider: params.require(:rider)
+        date: params.permit(:date), #si no se le pasa date usa created_at
+        other_spot: params.permit(:other_spot),
+        spot_id: params.permit(:spot_id),
+        other_riders: params.permit(:other_riders),
+        rider_id: params.permit(:rider_id)
     }
   end
 

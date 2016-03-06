@@ -15,5 +15,5 @@
 #
 
 class PhotoSerializer < ActiveModel::Serializer
-  attributes :id, :title, :description, :url, :sport, :date, :other_spot, :spot_id, :other_riders, :rider_id
+  attributes :id, :title, :description, :url, :sport, :date, :spot, :riders
 end

@@ -14,8 +14,16 @@
 #
 
 class Post < ActiveRecord::Base
+  after_create :set_date
+
   def self.find_by!(params)
     params[:id] = params.delete(:id) if params[:id]
     super params
+  end
+
+  private
+
+  def set_date #como setteo el default?
+    self.date ||= self.created_at
   end
 end

@@ -38,10 +38,17 @@ class RidersController < ApplicationController
         alias: params.require(:alias),
         sport: params.require(:sport),
         photo_url: params.require(:photo_url),
+        birthdate: params[:birthdate],
         description: params.require(:description),
-        age: params.require(:age),
-        nickname: params.require(:nickname),
-        location: params.require(:location)
+        nickname: [:nickname],
+        procedence: params[:procedence],
+        residence: params[:residence],
+        stance: params[:stance],
+        quote: params[:quote],
+        facebook: params[:facebook],
+        instagram: params[:instagram],
+        twitter: params[:twitter],
+        spots: params[:spots]
     }
   end
 
@@ -52,6 +59,6 @@ class RidersController < ApplicationController
   end
 
   def rider_update_params
-    params.slice(:name, :sport, :photo_url, :description, :description, :age, :nickname, :location).permit! #no son obligatorios
+    params.slice(:name, :sport, :photo_url, :birthdate, :description, :nickname, :procedence, :residence, :stance, :quote, :facebook, :instagram, :spots).permit! #no son obligatorios
   end
 end

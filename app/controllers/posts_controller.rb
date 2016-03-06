@@ -35,10 +35,11 @@ class PostsController < ApplicationController
   def post_create_params
     {
         title: params.require(:title),
-        sport: params.require(:sport),
         description: params.require(:description),
+        sport: params.require(:sport),
         url: params.require(:url),
-        post_type: params.require(:type)
+        post_type: params.require(:type),
+        date: params[:date]
     }
   end
 
@@ -49,6 +50,6 @@ class PostsController < ApplicationController
   end
 
   def post_update_params
-    params.slice(:title, :sport, :description, :url, :post_type).permit! #no son obligatorios
+    params.slice(:title, :sport, :description, :url, :post_type, :date).permit! #no son obligatorios
   end
 end

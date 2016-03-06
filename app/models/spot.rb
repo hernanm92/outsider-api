@@ -16,4 +16,10 @@
 #
 
 class Spot < ActiveRecord::Base
+  validates :alias, presence: true, uniqueness: true
+
+  def self.find_by!(params)
+    params[:id] = params.delete(:id) if params[:id]
+    super params
+  end
 end

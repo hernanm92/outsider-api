@@ -23,6 +23,7 @@
 #
 
 class Rider < ActiveRecord::Base
+  validates :alias, presence: true, uniqueness: true
 
   def self.find_by!(params)
     params[:alias] = params.delete(:id) if params[:id]

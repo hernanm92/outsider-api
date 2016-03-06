@@ -35,20 +35,18 @@ class UsersController < ApplicationController
 
   def user_create_params
     {
-      name: params.require(:name),
-      alias: params.require(:alias),
-      password: params.require(:password),
-      private: params.require(:private)
+      username: params.require(:username),
+      password: params.require(:password)
     }
   end
 
   def user_find_params
     {
-      alias: params.require(:id) #id es el que le viene por url
+        username: params.require(:id) #id es el que le viene por url
     }
   end
 
   def user_update_params
-  	params.slice(:private, :password, :followers, :following).permit! #no son obligatorios
+  	params.slice(:password).permit! #no son obligatorios
   end
 end

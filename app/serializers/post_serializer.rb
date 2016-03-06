@@ -14,7 +14,7 @@
 #
 
 class PostSerializer < ActiveModel::Serializer
-  attributes :id, :title, :sport, :description, :url, :type, :updated_at, :created_at
+  attributes :id, :title, :description, :sport, :url, :type, :date
 
   def type
     object.post_type

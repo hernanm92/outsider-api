@@ -1,10 +1,10 @@
 class CreatePhotos < ActiveRecord::Migration
   def change
     create_table :photos do |t|
-      t.string :title
-      t.text :description
-      t.string :url
-      t.string :sport
+      t.string :title, null: false
+      t.text :description, null: false
+      t.string :url, null: false
+      t.string :sport, null: false
       t.datetime :date
       t.jsonb :spot, default: {}
       t.jsonb :riders, default: []

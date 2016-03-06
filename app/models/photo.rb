@@ -15,8 +15,22 @@
 #
 
 class Photo < ActiveRecord::Base
+  after_initialize :set_defaults
+  after_create :set_date
+
   def self.find_by!(params)
     params[:id] = params.delete(:id) if params[:id]
     super params
+  end
+
+  private
+
+  def set_defaults
+    self.spot ||= {}
+    self.riders ||= []
+  end
+
+  def set_date
+    self.date ||= self.created_at
   end
 end

@@ -4,7 +4,7 @@ class PhotosController < ApplicationController
   #porque tengo que poner esto? validacion de rails para evitar CSRF attacks
 
   def index
-    @photos = Photo.all
+    @photos = Photo.all.order(date: :desc)
     render json: @photos
   end
 

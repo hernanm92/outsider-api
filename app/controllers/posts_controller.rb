@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   #porque tengo que poner esto? validacion de rails para evitar CSRF attacks
 
   def index
-    @posts = Post.all
+    @posts = Post.all.order(date: :desc)
     render json: @posts
   end
 

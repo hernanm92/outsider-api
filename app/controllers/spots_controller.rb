@@ -52,6 +52,6 @@ class SpotsController < ApplicationController
   end
 
   def spot_update_params
-    params.slice(:name, :address, :latitude, :longuitude, :url, :description, :sports).permit! #no son obligatorios
+    params.slice(:alias, :name, :address, :latitude, :longuitude, :url, :description, :sports).permit! #no son obligatorios
   end
 end

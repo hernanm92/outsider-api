@@ -16,5 +16,5 @@
 #
 
 class SpotSerializer < ActiveModel::Serializer
-  attributes :id, :name, :address, :latitude, :longuitude, :url, :description, :sports
+  attributes :alias, :name, :address, :latitude, :longuitude, :url, :description, :sports
 end

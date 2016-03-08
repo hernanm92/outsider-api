@@ -59,6 +59,6 @@ class RidersController < ApplicationController
   end
 
   def rider_update_params
-    params.slice(:name, :sport, :photo_url, :birthdate, :description, :nickname, :procedence, :residence, :stance, :quote, :facebook, :instagram, :spots).permit! #no son obligatorios
+    params.slice(:alias, :name, :sport, :photo_url, :birthdate, :description, :nickname, :procedence, :residence, :stance, :quote, :facebook, :instagram, :spots).permit! #no son obligatorios
   end
 end

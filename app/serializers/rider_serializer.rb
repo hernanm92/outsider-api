@@ -23,6 +23,6 @@
 #
 
 class RiderSerializer < ActiveModel::Serializer
-  attributes :id, :alias, :name, :sport, :photo_url, :description, :birthdate, :nickname, :procedence, :residence, :stance, :quote, :facebook, :instagram, :twitter, :spots
+  attributes :alias, :name, :sport, :photo_url, :description, :birthdate, :nickname, :procedence, :residence, :stance, :quote, :facebook, :instagram, :twitter, :spots
 
 end

@@ -4,24 +4,12 @@
 #   Ensure the SQLite 3 gem is defined in your Gemfile
 #   gem 'sqlite3'
 #
-#default: &default
-  #adapter: sqlite3
-  #pool: 5
-  #timeout: 5000
-
-#development:
-  #<<: *default
-  #database: db/development.sqlite3
-
-
 
 default: &default
   adapter: postgresql
   encoding: unicode
   pool: 5
-  #username: postgres #validar que que usuario me viene por defecto
   timeout: 5000
-  #host: localhost
 
 development:
   <<: *default
@@ -31,12 +19,15 @@ development:
 
 production:
   <<: *default
-  #database: db/development.sqlite3
+  host: 23.96.13.44
+  username: postgres
+  password: Outsider!
+
+heroku:
+  <<: *default
   database: d2bbs54b0nker4
   username: zhpkxhgenvsymv
   password: PsC1zmk0jhk4MsYAf8icQ47XQT
-
-
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -44,7 +35,3 @@ production:
 #test:
   #<<: *default
   #database: db/test.sqlite3
-
-#production:
-  #<<: *default
-  #database: db/production.sqlite3

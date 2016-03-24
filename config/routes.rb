@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
+  #resources :sessions, only: [:create, :destroy]
   resources :spots, except: [:new, :edit]
   resources :photos, except: [:new, :edit]
   resources :posts, except: [:new, :edit]
   resources :riders, except: [:new, :edit]
+
+  post '/admin/login', to: 'sessions#login'
 
   resources :users, only: [:index, :show, :create, :update, :destroy]
 

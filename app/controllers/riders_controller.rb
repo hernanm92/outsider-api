@@ -37,7 +37,7 @@ class RidersController < ApplicationController
         photo_url: params.require(:photo_url),
         birthdate: params[:birthdate],
         description: params.require(:description),
-        nickname: [:nickname],
+        nickname: params[:nickname],
         procedence: params[:procedence],
         residence: params[:residence],
         stance: params[:stance],

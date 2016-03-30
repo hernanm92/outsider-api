@@ -17,7 +17,7 @@ class SpotsController < ApplicationController
 
   def update
     @spot = Spot.find_by!(spot_find_params)
-    @spot.update! rider_update_params
+    @spot.update! spot_update_params
     render json: @spot
   end
 
